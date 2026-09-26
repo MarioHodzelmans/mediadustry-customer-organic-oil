@@ -4,7 +4,7 @@ export const languages: {code: Lang; label: string}[] = [
   {code:'it',label:'Italiano'}, {code:'nl',label:'Nederlands'}, {code:'hi',label:'हिन्दी'},
 ];
 const index: Record<Lang,number> = {en:0,de:1,fr:2,it:3,nl:4,hi:5};
-const phrases: Record<string,[string,string,string,string,string,string]> = {
+const phrases: Record<string,string[]> = {
   'global.prototype':['STRATEGY PROTOTYPE','STRATEGISCHER PROTOTYP','PROTOTYPE STRATÉGIQUE','PROTOTIPO STRATEGICO','STRATEGISCH PROTOTYPE',"रणनीति प्रोटोटाइप"],
   'global.pending':['Content and claims pending B.D. Aromatics review','Inhalte und Aussagen warten auf Prüfung durch B.D. Aromatics','Contenus et allégations en attente de validation par B.D. Aromatics','Contenuti e dichiarazioni in attesa di verifica da B.D. Aromatics','Inhoud en claims wachten op controle door B.D. Aromatics',"सामग्री और दावे B.D. Aromatics की समीक्षा के अधीन हैं"],
   'global.products':['Products','Produkte','Produits','Prodotti','Producten',"उत्पाद"],
