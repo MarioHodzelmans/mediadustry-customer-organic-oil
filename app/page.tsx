@@ -14,13 +14,12 @@ export default function Home() {
     <section className="feature-wrap" aria-labelledby="feature-title">
       <div className="feature-panel">
         <div className="feature-overlay">
-          <span className="feature-kicker">B.D. AROMATICS · INDIA</span>
-          <Link className="feature-round-link" href="/origin" aria-label="Explore our origin story"><Arrow /></Link>
+          <span className="feature-kicker">ORGANIC OIL EU · BOTANICAL INGREDIENTS</span>
           <h1 id="feature-title">The nature of<br /><em>mint, refined.</em></h1>
-          <p>Botanical ingredients selected for the people who make what comes next.</p>
-          <Link className="feature-text-link" href="/origin">Explore our story <Arrow /></Link>
+          <p>Mint oils and botanicals selected with care, from natural origin to the details of your formulation.</p>
+          <Link className="feature-text-link" href="/products">Explore the collection <Arrow /></Link>
         </div>
-        <div className="feature-corner">FROM FIELD TO FORMULATION</div>
+        <div className="feature-corner">01 / FROM FIELD TO FORMULATION</div>
       </div>
     </section>
 
