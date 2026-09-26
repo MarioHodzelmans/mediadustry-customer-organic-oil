@@ -14,7 +14,7 @@ export async function generateMetadata():Promise<Metadata>{
 }
 export default async function RootLayout({children}:{children:React.ReactNode}){
   const lang=await getLanguage();
-  const htmlLang={en:'en',de:'de-CH',fr:'fr-CH',it:'it-CH',nl:'nl'}[lang];
+  const htmlLang={en:'en',de:'de-CH',fr:'fr-CH',it:'it-CH',nl:'nl',hi:'hi'}[lang];
   return <html lang={htmlLang}><body><Reveal lang={lang}/>
     <div className="prototype">{t(lang,'global.prototype')} <span>{t(lang,'global.pending')}</span></div>
     <header className="site-header">
