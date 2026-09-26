@@ -33,6 +33,7 @@ const phrases: Record<string,[string,string,string,string,string]> = {
   'home.title2':['mint, refined.','Minze, veredelt.','menthe, affinée.','menta, raffinata.','munt, verfijnd.'],
   'home.body':['Mint oils and botanicals selected with care, from natural origin to the details of your formulation.','Sorgfältig ausgewählte Minzöle und Botanicals – vom natürlichen Ursprung bis ins Detail Ihrer Formulierung.','Huiles de menthe et ingrédients botaniques sélectionnés avec soin, de l’origine naturelle aux détails de votre formulation.','Oli di menta e botanici selezionati con cura, dall’origine naturale ai dettagli della tua formulazione.','Zorgvuldig geselecteerde muntoliën en botanische ingrediënten, van natuurlijke herkomst tot de details van je formule.'],
   'home.cta':['Explore the collection','Kollektion entdecken','Découvrir la collection','Esplora la collezione','Bekijk de collectie'],
+  'home.watch':['Watch our story','Unsere Geschichte ansehen','Voir notre histoire','Guarda la nostra storia','Bekijk ons verhaal'],
   'home.corner':['FROM FIELD TO FORMULATION','VOM FELD ZUR FORMULIERUNG','DU CHAMP À LA FORMULATION','DAL CAMPO ALLA FORMULAZIONE','VAN VELD TOT FORMULE'],
   'home.collection':['THE MINT COLLECTION','DIE MINZKOLLEKTION','LA COLLECTION MENTHE','LA COLLEZIONE MENTA','DE MUNTCOLLECTIE'],
   'home.selected':['Selected materials','Ausgewählte Rohstoffe','Matières sélectionnées','Materiali selezionati','Geselecteerde grondstoffen'],
