@@ -240,7 +240,7 @@ const phrases: Record<string,string[]> = {
 export function t(lang: Lang, key: string): string {
   const row = phrases[key];
   if (!row) throw new Error(`Missing translation: ${key}`);
-  return row[index[lang]];
+  return row[index[lang]] ?? row[0] ?? key;
 }
 export function productText(lang: Lang, slug: string, field: 'name'|'note'): string {
   const id: Record<string,string> = {'peppermint-oil':'peppermint','cornmint-oil':'cornmint','spearmint-oil':'spearmint','dementholised-oil':'dementholised','menthol-crystals':'menthol'};
