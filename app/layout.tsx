@@ -1,37 +1,36 @@
-import type { Metadata } from 'next';
+import type {Metadata} from 'next';
 import Link from 'next/link';
 import Arrow from './arrow';
+import LanguageSwitcher from './language-switcher';
+import Reveal from './reveal';
+import {t} from '../i18n';
+import {getLanguage} from '../i18n-server';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: { default: 'B.D. Aromatics | Mint ingredients for your specification', template: '%s | B.D. Aromatics' },
-  description: 'Explore mint oils and menthol materials for formulation and supply qualification. European growth website prototype.',
-  robots: { index: false, follow: false },
-};
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="en"><body>
-    <div className="prototype">STRATEGY PROTOTYPE <span>Content and claims pending B.D. Aromatics review</span></div>
+export async function generateMetadata():Promise<Metadata>{
+  const lang=await getLanguage();
+  return {title:'Organic Oil EU',description:t(lang,'meta.description'),robots:{index:false,follow:false}};
+}
+export default async function RootLayout({children}:{children:React.ReactNode}){
+  const lang=await getLanguage();
+  const htmlLang={en:'en',de:'de-CH',fr:'fr-CH',it:'it-CH',nl:'nl'}[lang];
+  return <html lang={htmlLang}><body><Reveal lang={lang}/>
+    <div className="prototype">{t(lang,'global.prototype')} <span>{t(lang,'global.pending')}</span></div>
     <header className="site-header">
       <Link href="/" className="brand" aria-label="Organic Oil EU home"><span className="brand-wordmark">Organic Oil <span>EU</span></span></Link>
-      <nav aria-label="Main navigation"><Link href="/products">Products</Link><Link href="/applications">Applications</Link><Link href="/origin">Origin & traceability</Link><Link href="/quality">Quality</Link><Link href="/company">Our company</Link></nav>
-      <Link href="/contact" className="header-cta">Start an enquiry <Arrow /></Link>
+      <nav aria-label="Main navigation"><Link href="/products">{t(lang,'global.products')}</Link><Link href="/applications">{t(lang,'global.applications')}</Link><Link href="/origin">{t(lang,'global.origin')}</Link><Link href="/quality">{t(lang,'global.quality')}</Link><Link href="/company">{t(lang,'global.company')}</Link></nav>
+      <div className="header-tools"><LanguageSwitcher lang={lang}/><Link href="/contact" className="header-cta">{t(lang,'global.enquiry')} <Arrow/></Link></div>
     </header>
     <main>{children}</main>
     <footer className="landscape-footer">
-      <div className="landscape-footer-content">
-        <span className="eyebrow">B.D. AROMATICS · BOTANICAL INGREDIENTS</span>
-        <h2>We bring nature<br />into the details.</h2>
-        <p>From mint origin to your finished formulation, start with the right material conversation.</p>
-        <Link href="/contact" className="footer-main-link">Tell us what you’re making <Arrow /></Link>
+      <div className="landscape-footer-content" data-reveal><span className="eyebrow">ORGANIC OIL EU · {t(lang,'global.footerKicker')}</span><h2>{t(lang,'global.footerTitle1')}<br/>{t(lang,'global.footerTitle2')}</h2><p>{t(lang,'global.footerBody')}</p><Link href="/contact" className="footer-main-link">{t(lang,'global.footerCta')} <Arrow/></Link></div>
+      <div className="landscape-footer-nav" data-reveal>
+        <div className="footer-brand-block"><Link href="/" className="footer-brand">Organic Oil EU</Link><span>{t(lang,'global.tagline')}<br/>Bareilly, India.</span></div>
+        <div><b>{t(lang,'global.explore')}</b><Link href="/products">{t(lang,'global.products')}</Link><Link href="/applications">{t(lang,'global.applications')}</Link><Link href="/origin">{t(lang,'global.origin')}</Link></div>
+        <div><b>{t(lang,'global.company')}</b><Link href="/company">{t(lang,'global.company')}</Link><Link href="/manufacturing">{t(lang,'global.manufacturing')}</Link><Link href="/quality">{t(lang,'global.qualityDocs')}</Link></div>
+        <div><b>{t(lang,'global.connect')}</b><Link href="/resources">{t(lang,'global.resources')}</Link><Link href="/contact">{t(lang,'global.contact')}</Link><Link href="/contact?type=sample">{t(lang,'global.sample')}</Link></div>
       </div>
-      <div className="landscape-footer-nav">
-        <div className="footer-brand-block"><Link href="/" className="footer-brand">Organic Oil EU</Link><span>Mint materials for careful formulation.<br />Bareilly, India.</span></div>
-        <div><b>Explore</b><Link href="/products">Products</Link><Link href="/applications">Applications</Link><Link href="/origin">Origin & traceability</Link></div>
-        <div><b>Company</b><Link href="/company">Our company</Link><Link href="/manufacturing">Manufacturing</Link><Link href="/quality">Quality & documents</Link></div>
-        <div><b>Connect</b><Link href="/resources">Resources</Link><Link href="/contact">Contact</Link><Link href="/contact?type=sample">Request a sample</Link></div>
-      </div>
-      <div className="landscape-footer-bottom"><span>© {new Date().getFullYear()} B.D. Aromatics · Concept for review</span><span>No product claim on this prototype is a released specification.</span></div>
+      <div className="landscape-footer-bottom"><span>© {new Date().getFullYear()} Organic Oil EU · {t(lang,'global.copyright')}</span><span>{t(lang,'global.disclaimer')}</span></div>
     </footer>
   </body></html>;
 }
