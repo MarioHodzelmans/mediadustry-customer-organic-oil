@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+.env*
+*.tsbuildinfo
+.DS_Store
+.vercel
+research/
+proposal.md
+production-brief.md
+website-strategy.md

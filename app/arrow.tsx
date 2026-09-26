@@ -1,0 +1,1 @@
+export default function Arrow(){return <svg aria-hidden="true" focusable="false" viewBox="0 0 20 20" className="arrow"><path d="M3 10h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>}
