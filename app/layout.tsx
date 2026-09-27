@@ -1,7 +1,6 @@
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import Arrow from './arrow';
-import LanguageSwitcher from './language-switcher';
 import MobileMenu from './mobile-menu';
 import Reveal from './reveal';
 import {t} from '../i18n';
@@ -14,13 +13,12 @@ export async function generateMetadata():Promise<Metadata>{
 }
 export default async function RootLayout({children}:{children:React.ReactNode}){
   const lang=await getLanguage();
-  const htmlLang={en:'en',de:'de-CH',fr:'fr-CH',it:'it-CH',nl:'nl',hi:'hi'}[lang];
-  return <html lang={htmlLang}><body><Reveal lang={lang}/>
+  return <html lang="en"><body><Reveal lang={lang}/>
     <div className="prototype">{t(lang,'global.prototype')} <span>{t(lang,'global.pending')}</span></div>
     <header className="site-header">
       <Link href="/" className="brand" aria-label="Organic Oil EU home"><span className="brand-wordmark">Organic Oil <span>EU</span></span></Link>
       <nav className="desktop-nav" aria-label="Main navigation"><Link href="/products">{t(lang,'global.products')}</Link><Link href="/applications">{t(lang,'global.applications')}</Link><Link href="/origin">{t(lang,'global.origin')}</Link><Link href="/quality">{t(lang,'global.quality')}</Link><Link href="/company">{t(lang,'global.company')}</Link></nav>
-      <div className="header-tools"><LanguageSwitcher lang={lang}/><Link href="/contact" className="header-cta">{t(lang,'global.enquiry')} <Arrow/></Link><MobileMenu lang={lang}/></div>
+      <div className="header-tools"><Link href="/contact" className="header-cta">{t(lang,'global.enquiry')} <Arrow/></Link><MobileMenu lang={lang}/></div>
     </header>
     <main>{children}</main>
     <footer className="landscape-footer">
